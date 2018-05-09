@@ -29,6 +29,7 @@ export default {
   .hander-left
     width .8rem
     text-align center
+    font-weight bold
     span
       line-height .64rem
   .hander-input
