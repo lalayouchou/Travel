@@ -28,5 +28,5 @@ export default {
     position absolute
     width .8rem
     font-weight bold
-     color #fff
+    color #fff
 </style>
