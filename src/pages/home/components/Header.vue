@@ -6,10 +6,12 @@
       <div class="hander-input">
         <span class="iconfont">&#xe632;</span>
         输入城市/景点/游玩主题</div>
-      <div class="hander-right">
-        {{city}}
-        <span class="iconfont arrow-icon">&#xe6aa;</span>
-      </div>
+      <router-link to="/city">
+        <div class="hander-right">
+          {{city}}
+          <span class="iconfont arrow-icon">&#xe6aa;</span>
+        </div>
+    </router-link>
   </div>
 </template>
 
@@ -49,6 +51,7 @@ export default {
     width 1.14rem
     text-align center
     padding-left .2rem
+    color #fff
     .arrow-icon
       font-size .36rem
       display inline-block
