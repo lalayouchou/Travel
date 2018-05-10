@@ -1,6 +1,6 @@
 <template>
   <div class="warpper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item of list" :key="item.id">
         <img :src="item.imgUrl" alt="" class="swiper-img">
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'HomeSwiper',
-  props :{
+  props: {
     list: Array
   },
   data () {
@@ -25,6 +25,11 @@ export default {
         autoplay: 5000,
         autoplayDisableOnInteraction: false
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

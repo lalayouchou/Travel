@@ -20,7 +20,7 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  props :{
+  props: {
     list: Array
   }
 }

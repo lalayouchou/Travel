@@ -24,7 +24,7 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  props :{
+  props: {
     list: Array
   }
 }
@@ -63,7 +63,7 @@ export default {
         background #ff9300
         border-radius .05rem
         font-size .2rem
-        padding .05rem .2rem 
+        padding .05rem .2rem
         line-height .3rem
         margin-top .05rem
         color #fff

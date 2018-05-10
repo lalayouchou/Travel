@@ -27,8 +27,8 @@ export default {
   mounted () {
     this.getHomeInfo()
   },
-  data (){
-    return{
+  data () {
+    return {
       city: '',
       swiperList: [],
       iconList: [],
@@ -37,21 +37,21 @@ export default {
     }
   },
   methods: {
-    getHomeInfo() {
+    getHomeInfo () {
       axios.get('/api/index.json')
         .then(this.getHomeInfoSucc).catch(this.getHomeInfoFail)
     },
-    getHomeInfoSucc(msg) {
-      const message = msg.data;
-      if(message.ret && message.data){
-        this.city = message.data.city;
-        this.swiperList = message.data.swiperList;
-        this.iconList = message.data.iconList;
-        this.recommendList = message.data.recommendList;
-        this.weekendList = message.data.weekendList;
+    getHomeInfoSucc (msg) {
+      const message = msg.data
+      if (message.ret && message.data) {
+        this.city = message.data.city
+        this.swiperList = message.data.swiperList
+        this.iconList = message.data.iconList
+        this.recommendList = message.data.recommendList
+        this.weekendList = message.data.weekendList
       }
     },
-    getHomeInfoFail(error) {
+    getHomeInfoFail (error) {
       console.log(error)
     }
   }

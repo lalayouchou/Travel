@@ -1,6 +1,6 @@
 ﻿<template>
   <div class="icons">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showIcons">
       <swiper-slide v-for="(page,index) of pages" :key="index">
        <div class="icon" v-for="item of page" :key="item.id">
         <div class="icon-img">
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: 'HomeIcons',
-  props :{
+  props: {
     list: Array
   },
   data () {
@@ -39,6 +39,9 @@ export default {
         pages[page].push(item)
       })
       return pages
+    },
+    showIcons () {
+      return this.list.length
     }
   }
 }
