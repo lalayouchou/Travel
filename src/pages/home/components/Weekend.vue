@@ -4,7 +4,7 @@
       周末去哪儿
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendLists" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt="" class="item-img">
         </div>
@@ -20,25 +20,8 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendLists:[{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
-        title: '上海必游TOP10',
-        desc: '中西合璧，现代和传统各有各的精彩'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
-        title: '上海必游TOP10',
-        desc: '中西合璧，现代和传统各有各的精彩'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
-        title: '上海必游TOP10',
-        desc: '中西合璧，现代和传统各有各的精彩'
-      }]
-    }
+  props :{
+    list: Array
   }
 }
 </script>

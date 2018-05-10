@@ -4,7 +4,7 @@
       热门推荐
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendLists" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt="" class="item-img">
         </div>
@@ -24,25 +24,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendLists:[{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '杭州野生动物园',
-        desc: '别光抬头看景，潺潺清泉里倒影更迷人'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '杭州野生动物园',
-        desc: '别光抬头看景，潺潺清泉里倒影更迷人'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '杭州野生动物园',
-        desc: '别光抬头看景，潺潺清泉里倒影更迷人'
-      }]
-    }
+  props :{
+    list: Array
   }
 }
 </script>
