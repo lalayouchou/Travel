@@ -1,0 +1,72 @@
+<template>
+  <div>
+    <div class="recommend-title">
+      周末去哪儿
+    </div>
+    <ul>
+      <li class="item border-bottom" v-for="item of recommendLists" :key="item.id">
+        <div class="item-img-wrapper">
+          <img :src="item.imgUrl" alt="" class="item-img">
+        </div>
+        <div class="item-info">
+          <p class="item-title">{{item.title}}</p>
+          <p class="item-desc">{{item.desc}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeWeekend',
+  data () {
+    return {
+      recommendLists:[{
+        id: '0001',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
+        title: '上海必游TOP10',
+        desc: '中西合璧，现代和传统各有各的精彩'
+      }, {
+        id: '0002',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
+        title: '上海必游TOP10',
+        desc: '中西合璧，现代和传统各有各的精彩'
+      }, {
+        id: '0003',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
+        title: '上海必游TOP10',
+        desc: '中西合璧，现代和传统各有各的精彩'
+      }]
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/ellipsis.styl'
+  .recommend-title
+    line-height .8rem
+    background #eee
+    text-indent .2rem
+  .item
+    .item-img-wrapper
+      height 0
+      padding-bottom 37%
+      overflow hidden
+      .item-img
+        width 100%
+    .item-info
+      padding .2rem
+      border-bottom .1rem solid rgb(235,235,235)
+      .item-title
+        line-height .4rem
+        font-size .28rem
+        ellipsis()
+      .item-desc
+        height .5rem
+        line-height .5rem
+        font-size .24rem
+        color #aaa
+        ellipsis()
+</style>
