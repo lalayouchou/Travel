@@ -17,84 +17,20 @@
            热门城市
           </div>
           <div class="area-botton">
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
-            </div>
-            <div class="botton-wrapper">
-              <div class="botton">北京</div>
+            <div class="botton-wrapper" v-for="item of hotCities" :key="item.id">
+              <div class="botton">{{item.name}}</div>
             </div>
           </div>
         </div>
-        <div class="area">
+        <div class="area"
+        v-for="(value,key) in cities"
+        :key="key"
+        :ref="key">
           <div class="area-title border-bottom city-title">
-           A
+           {{key}}
           </div>
-          <div class="city-list">
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-          </div>
-        </div>
-        <div class="area">
-          <div class="area-title border-bottom city-title">
-           A
-          </div>
-          <div class="city-list">
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-          </div>
-        </div>
-        <div class="area">
-          <div class="area-title border-bottom city-title">
-           A
-          </div>
-          <div class="city-list">
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
-            <div class="city border-bottom">阿克苏</div>
+          <div class="city-list" v-for="city in value" :key="city.id">
+            <div class="city border-bottom">{{city.name}}</div>
           </div>
         </div>
       </div>
@@ -106,8 +42,22 @@
 import Bscoll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Object,
+    hotCities: [ Array, Object ],
+    letter: String
+  },
   mounted () {
     this.scroll = new Bscoll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const name = this.letter
+        const element = this.$refs[name][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
@@ -148,6 +98,7 @@ export default {
           border-radius .04rem
     .city-title
       background transparent
+      color $bgColor
     .city-list
       .city
         padding-left .3rem
