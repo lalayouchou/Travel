@@ -21,9 +21,8 @@ export default {
   .search-input
    display block
    width 90%
-   margin auto
+   margin .11rem auto 0
    height .55rem
-   margin-top .11rem
    text-align center
    border-radius .05rem
    font-size .2rem
