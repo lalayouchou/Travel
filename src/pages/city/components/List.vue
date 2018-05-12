@@ -8,7 +8,7 @@
           </div>
           <div class="area-botton">
             <div class="botton-wrapper">
-              <div class="botton">北京</div>
+              <div class="botton">{{this.city}}</div>
             </div>
           </div>
         </div>
@@ -17,7 +17,12 @@
            热门城市
           </div>
           <div class="area-botton">
-            <div class="botton-wrapper" v-for="item of hotCities" :key="item.id">
+            <div
+            class="botton-wrapper"
+            v-for="item of hotCities"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+            >
               <div class="botton">{{item.name}}</div>
             </div>
           </div>
@@ -30,7 +35,10 @@
            {{key}}
           </div>
           <div class="city-list" v-for="city in value" :key="city.id">
-            <div class="city border-bottom">{{city.name}}</div>
+            <div
+            class="city border-bottom"
+            @click="handleCityClick(city.name)"
+            >{{city.name}}</div>
           </div>
         </div>
       </div>
@@ -40,6 +48,7 @@
 
 <script>
 import Bscoll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -58,6 +67,16 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
+  },
+  computed:{
+    ...mapState({city:'city'}),
+  },
+  methods: {
+    handleCityClick (name) {
+      this.changeCity(name)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>

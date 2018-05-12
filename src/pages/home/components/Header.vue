@@ -8,7 +8,7 @@
         输入城市/景点/游玩主题</div>
       <router-link to="/city">
         <div class="hander-right">
-          {{city}}
+          {{this.city}}
           <span class="iconfont arrow-icon">&#xe6aa;</span>
         </div>
     </router-link>
@@ -16,16 +16,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/iconfont/variable.styl'
+@import '~styles/ellipsis.styl'
 .hander
   display flex
   line-height .86rem
@@ -46,12 +48,14 @@ export default {
     margin-left .1rem
     background #ffffff
     border-radius .1rem
-    text-indent .2rem//padding-left .2rem
+    text-indent .15rem//padding-left .2rem
+    ellipsis()
   .hander-right
-    width 1.14rem
+    min-width 1rem
+    padding 0 .1rem 0 .2rem
     text-align center
-    padding-left .2rem
     color #fff
+    ellipsis()
     .arrow-icon
       font-size .36rem
       display inline-block
