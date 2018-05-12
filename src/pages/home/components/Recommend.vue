@@ -4,7 +4,13 @@
       热门推荐
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of list" :key="item.id">
+      <router-link
+      class="item border-bottom"
+      v-for="item of list"
+      :key="item.id"
+      tag="li"
+      :to="'/detail/' + item.id"
+        >
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt="" class="item-img">
         </div>
@@ -13,7 +19,7 @@
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
     <div class="recommend-more">
       <a>查看更多相关推荐</a>
