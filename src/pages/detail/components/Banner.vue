@@ -4,15 +4,15 @@
       <div class="header-back" @click.stop="HandleHeaderBack" v-show="showAbs">
         <div class="iconfont">&#xe624;</div>
       </div>
-      <img src="//img1.qunarzz.com/sight/p0/201406/24/e2a5766e6e81793b2b518a7a08812a4a.jpg_600x330_3a459e19.jpg" alt="" class="banner-img">
+      <img :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">千岛湖森林氧吧</div>
+        <div class="banner-title">{{sightName}}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe632;</span>6</div>
       </div>
       <div class="header-title" v-show="!showAbs" :style="opacityStyle">景点详情</div>
     </div>
-    <common-gallery :imgs="imgs" v-show="showGallery" @close="closeGallery"></common-gallery>
+    <common-gallery :imgs="gallery" v-show="showGallery" @close="closeGallery"></common-gallery>
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
   name: 'DetailBanner',
   components: {
     CommonGallery
+  },
+  props: {
+    bannerImg: String,
+    sightName: String,
+    gallery: Array
   },
   data () {
     return {
@@ -72,7 +77,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/iconfont/variable.styl'
 .wrapper
-  height 50rem
   .banner
     overflow hidden
     height 0
@@ -118,6 +122,7 @@ export default {
       font-weight bold
       text-align center
     .header-title
+      z-index 2
       position fixed
       top 0
       left 0
