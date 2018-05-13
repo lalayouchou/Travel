@@ -15,11 +15,13 @@
 
 <script>
 export default {
-  name: "CommonGallery",
+  name: 'CommonGallery',
   props: {
     imgs: {
-      type:Array,
-      default:[]
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   },
   data () {
@@ -33,8 +35,8 @@ export default {
     }
   },
   methods: {
-    handGalleryClick(e){
-      if(e.target===this.$refs.container){
+    handGalleryClick (e) {
+      if (e.target === this.$refs.container) {
         this.$emit('close')
       }
     }
@@ -44,7 +46,7 @@ export default {
 
 <style lang="stylus" scoped>
   .container >>> .swiper-container
-    overflow visible 
+    overflow visible
   .container
     z-index 99
     position fixed
@@ -65,5 +67,4 @@ export default {
       .swiper-pagination
         color #fff
         bottom -1rem
-   
 </style>

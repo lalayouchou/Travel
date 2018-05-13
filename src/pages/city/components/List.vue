@@ -68,8 +68,8 @@ export default {
       }
     }
   },
-  computed:{
-    ...mapState({city:'city'}),
+  computed: {
+    ...mapState({city: 'city'})
   },
   methods: {
     handleCityClick (name) {
