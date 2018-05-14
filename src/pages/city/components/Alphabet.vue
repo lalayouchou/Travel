@@ -8,9 +8,9 @@
     :ref="key"
     @click="HandleLetterClick"
     @touchstart.prevent="HandleTouchStart"
-    @touchmove.prevent="HandleTouchMove"
-    @touchend.prevent="HandleTouchEnd"
-    @touchcancel="console.log(1)"
+    @touchmove="HandleTouchMove"
+    @touchend="HandleTouchEnd"
+    @touchcancel="HandleTouchEnd"
     >
     {{key}}
     </li>
