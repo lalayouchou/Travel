@@ -7,9 +7,10 @@
     :key="key"
     :ref="key"
     @click="HandleLetterClick"
-    @touchstart="HandleTouchStart"
-    @touchmove="HandleTouchMove"
-    @touchend="HandleTouchEnd"
+    @touchstart.prevent="HandleTouchStart"
+    @touchmove.prevent="HandleTouchMove"
+    @touchend.prevent="HandleTouchEnd"
+    @touchcancel="console.log(1)"
     >
     {{key}}
     </li>
@@ -70,8 +71,10 @@ export default {
       }
     },
     HandleTouchEnd () {
-      this.touchStatus = false
-      this.touchMoveStatus = false
+      setTimeout(() => {
+        this.touchStatus = false
+        this.touchMoveStatus = false
+      }, 16)
     }
   }
 }

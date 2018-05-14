@@ -38,6 +38,7 @@ export default {
     if (this.lastId !== this.$route.params.id) {
       this.getDetailInfo()
       this.lastId = this.$route.params.id
+      console.log('1')
     }
   },
   methods: {

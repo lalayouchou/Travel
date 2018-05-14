@@ -57,7 +57,9 @@ export default {
     letter: String
   },
   mounted () {
-    this.scroll = new Bscoll(this.$refs.wrapper)
+    this.scroll = new Bscoll(this.$refs.wrapper, {
+      click: true
+    })
   },
   watch: {
     letter () {
